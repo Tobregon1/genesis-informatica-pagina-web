@@ -6,6 +6,27 @@
   <title>Génesis Informática | Servicio técnico, desarrollo y préstamos en Corrientes</title>
   <meta name="description" content="Servicio técnico de PC e impresoras, desarrollo de software, diseño web y préstamos con empeño en Corrientes. Atención exclusiva con cita previa.">
 
+  <!-- Metadatos Open Graph (Previsualización en WhatsApp y Redes Sociales) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Génesis Informática">
+  <meta property="og:title" content="Génesis Informática | Servicio técnico, desarrollo y préstamos en Corrientes">
+  <meta property="og:description" content="Servicio técnico de PC e impresoras, desarrollo de software, diseño web y préstamos con empeño en Corrientes. Atención exclusiva con cita previa.">
+  <meta property="og:url" content="https://tobregon1.github.io/genesis-informatica-pagina-web/">
+  <meta property="og:image" content="https://tobregon1.github.io/genesis-informatica-pagina-web/img/portada.png">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Génesis Informática Corrientes">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Génesis Informática | Corrientes">
+  <meta name="twitter:description" content="Servicio técnico de PC e impresoras, desarrollo de software, diseño web y préstamos con empeño en Corrientes.">
+  <meta name="twitter:image" content="https://tobregon1.github.io/genesis-informatica-pagina-web/img/portada.png">
+
+  <!-- Color de barra del navegador móvil -->
+  <meta name="theme-color" content="#0a3340">
+
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="apple-touch-icon" href="img/logo.png">
@@ -14,6 +35,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Datos estructurados Schema.org (SEO Local de Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Génesis Informática",
+    "image": "https://tobregon1.github.io/genesis-informatica-pagina-web/img/portada.png",
+    "logo": "https://tobregon1.github.io/genesis-informatica-pagina-web/img/logo-192.png",
+    "url": "https://tobregon1.github.io/genesis-informatica-pagina-web/",
+    "telephone": "+5493794775092",
+    "email": "tobiobregon87@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Asunción 2700",
+      "addressLocality": "Corrientes",
+      "addressRegion": "Corrientes",
+      "postalCode": "W3400",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -27.4895163,
+      "longitude": -58.8172322
+    },
+    "hasMap": "https://maps.app.goo.gl/373kDPAMZQAHvNdu7",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      }
+    ]
+  }
+  </script>
 
   <style>
     /* ==========================================================================
@@ -163,6 +221,13 @@
 
     .btn.o:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
     }
 
     /* ==========================================================================
@@ -787,6 +852,12 @@
         </blockquote>
       </div>
 
+      <div style="margin: 22px 0 32px;">
+        <a class="btn o" target="_blank" rel="noopener" href="https://maps.app.goo.gl/373kDPAMZQAHvNdu7">
+          ⭐ Ver opiniones y ubicación en Google Maps
+        </a>
+      </div>
+
       <h3>Sistemas que desarrollamos</h3>
       <ul class="chips">
         <li>Gestión de turnos</li>
@@ -1023,6 +1094,8 @@
       e.preventDefault();
       const form = e.target;
       const status = $("#st");
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
       const values = Object.fromEntries(new FormData(form));
 
       // Validar si es día no laborable
@@ -1030,6 +1103,11 @@
         status.textContent = "Ese día no atendemos. Elegí otra fecha.";
         return;
       }
+
+      // Estado de carga en el botón
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando solicitud...";
+      status.textContent = "";
 
       values.creado = new Date().toISOString();
       const msg = `Hola, soy ${values.nombre}. Quiero un turno para ${values.servicio} el ${values.fecha} a las ${values.hora}.${values.detalle ? " " + values.detalle : ""}`;
@@ -1045,6 +1123,9 @@
           sent = true;
         } catch (_) {}
       }
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
 
       status.innerHTML = (sent ? "Recibimos tu solicitud. " : "") +
         `Confirmá tu turno por WhatsApp: <a href="${waURL(msg)}" target="_blank" rel="noopener">enviar mensaje</a>.`;
