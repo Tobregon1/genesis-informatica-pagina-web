@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="img/portada.png" alt="Génesis Informática Logo" width="720" style="border-radius: 40px;" />
+  <img src="img/portada.png" alt="Génesis Informática Logo" width="720" style="border-radius: 30px;" />
   <h1>Génesis Informática</h1>
   <p><strong>Soluciones tecnológicas y financieras para vos y tu negocio en Corrientes</strong></p>
 
