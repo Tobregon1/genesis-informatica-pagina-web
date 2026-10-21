@@ -17,7 +17,7 @@ Elegís el día y el horario, y te esperamos con el tiempo reservado para tu equ
 **Asunción 2700**\
 Corrientes Capital
 
-[Servicio técnico PC, notebooks e impresoras: mantenimiento, reparación e instalación de sistemas. Ver detalle](#tecnico) [Desarrollo y marketing Software a medida, bases de datos, sitios web y marketing digital para tu negocio. Ver detalle](#desarrollo) [Préstamos con empeño Dinero en el momento, con evaluación a la vista y condiciones por escrito. Ver detalle](#prestamos)
+[Servicio técnico PC, notebooks e impresoras: mantenimiento, reparación e instalación de sistemas. Ver detalle](#tecnico) [Desarrollo de Software y Web Software a medida, bases de datos y sitios web para tu negocio. Ver detalle](#desarrollo) [Préstamos con empeño Dinero en el momento, con evaluación a la vista y condiciones por escrito. Ver detalle](#prestamos)
 
 ## Gente y negocios que ya trabajaron con nosotros
 
@@ -64,7 +64,7 @@ Valores de referencia. El precio final se confirma después del diagnóstico.
 - **Instalación de sistemas**Windows o Linux, drivers, programas y copia de seguridad de tus archivos.
 - **Impresoras**Limpieza de cabezales, cambio de piezas y configuración en red.
 
-### Desarrollo de software y marketing digital
+### Desarrollo de software y diseño web
 
 Digitalizamos tu negocio para que trabaje con menos papeles, menos errores y más clientes.
 
@@ -73,7 +73,6 @@ Digitalizamos tu negocio para que trabaje con menos papeles, menos errores y má
 - **Sistemas y aplicaciones a medida**Turnos, ventas, stock y clientes, hechos para cómo trabajás vos.
 - **Bases de datos e integraciones**Conectamos tus planillas, tu tienda online y tus sistemas para que dejen de trabajar por separado.
 - **Sitios web y tiendas online**Rápidos y pensados para verse bien en el celular.
-- **Marketing digital**Perfil de Google, redes sociales y campañas con resultados medibles.
 - **Automatizaciones**Avisos, turnos y reportes que se cargan solos.
 
 ### Préstamos con empeño
