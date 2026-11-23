@@ -441,12 +441,17 @@ section {
 }
 
 :root[data-theme="light"] .nav:not(.scrolled) {
-  color: #0d2b33;
-  --text: #0d2b33;
-  --muted: #2d4852;
-  --line: rgba(13, 43, 51, .16);
-  --teal: #0a76b8;
-  background: linear-gradient(180deg, rgba(238, 243, 243, .92), rgba(238, 243, 243, .45) 75%, transparent);
+  background: rgba(8, 26, 32, .92);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(180, 224, 240, .14);
+  box-shadow: 0 10px 26px -14px rgba(10, 51, 64, .45);
+  color: #eaf4f6;
+  --text: #eaf4f6;
+  --muted: #b6ced7;
+  --line: rgba(180, 224, 240, .18);
+  --teal: #1eaaff;
+  --surface-pill: rgba(255, 255, 255, .09);
+  --tx-shadow-sm: 0 2px 8px rgba(0, 0, 0, .75);
 }
 
 .nav.scrolled {
@@ -473,52 +478,32 @@ section {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
   flex: none;
 }
 
-.brand-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1.5px solid rgba(255, 197, 51, .75);
-  box-shadow: 0 0 18px -4px rgba(30, 170, 255, .55);
-  background: #061318;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+.brand-wordmark {
+  height: 46px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .88)) drop-shadow(0 0 12px rgba(30, 170, 255, .25));
+  transition: transform 0.3s var(--ease), filter 0.3s var(--ease);
 }
 
-.brand:hover .brand-logo {
-  transform: scale(1.07);
-  box-shadow: 0 0 22px -2px rgba(255, 197, 51, .7);
+.brand:hover .brand-wordmark {
+  transform: scale(1.04);
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .92)) drop-shadow(0 0 16px rgba(255, 197, 51, .45));
 }
 
-.brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.nav.scrolled .brand-wordmark {
+  height: 42px;
 }
 
-.brand-txt {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.95;
-}
-
-.brand-txt b {
-  font: 400 1.25rem/0.95 var(--display);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-  text-shadow: var(--tx-shadow-sm);
-}
-
-.brand-txt span {
-  font: 700 0.7rem/1.1 var(--cond);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--teal);
-  text-shadow: var(--tx-shadow-sm);
+@media (max-width: 640px) {
+  .brand-wordmark,
+  .nav.scrolled .brand-wordmark {
+    height: 36px;
+  }
 }
 
 .nav-links {
@@ -541,8 +526,6 @@ section {
   text-shadow: var(--tx-shadow-sm);
 }
 
-.nav.scrolled .brand-txt b,
-.nav.scrolled .brand-txt span,
 .nav.scrolled .nav-links a {
   text-shadow: 0 2px 8px rgba(0, 0, 0, .75);
 }
