@@ -54,6 +54,11 @@ function doPost(e) {
   const lock = LockService.getScriptLock();
   try {
     lock.waitLock(15000);
+    const p = (e && e.parameter) || {};
+    // Freno honeypot anti-bots: si un bot completa el campo oculto, ignoramos silenciosamente.
+    if (limpiar_(p.website, 40)) {
+      return json_({ ok: true, estado: 'Ignorado' });
+    }
     const datos = leerDatos_(e);
     const resultado = registrarTurno_(datos);
     return json_({ ok: true, estado: resultado.estado });
@@ -186,6 +191,7 @@ function leerDatos_(e) {
     detalle: limpiar_(p.detalle, 500)
   };
   if (!d.nombre || !d.telefono) throw new Error('Faltan el nombre o el teléfono');
+  if (d.telefono.replace(/\D/g, '').length < 7) throw new Error('Teléfono inválido');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(d.fecha)) throw new Error('Fecha inválida');
   if (CONFIG.HORARIOS.indexOf(d.hora) === -1) throw new Error('Horario inválido');
   if (d.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) d.email = '';
